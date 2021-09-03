@@ -1,0 +1,37 @@
+
+<div class="weather-data layout-column align-items-center mt-50">
+
+  <section class="layout-row align-items-center justify-content-center">
+    <label>Enter City: </label>
+    <input type="text" class="large ml-30" [(ngModel)]="city" placeholder="Seattle" data-test-id="app-input"/>
+  </section>
+  <button (click)="validatedata()">Get Weather</button>
+  <section class="mt-20 layout-row align-items-center justify-content-center">
+    <div class="card outlined">
+      <div *ngIf ="!invaliddata">
+        <div data-test-id="weather-details" class="card-text pt-10 layout-row justify-content-between">
+            <div class="mt-20 outlined">
+              <button class="icon-only mx-2">
+                <i class="material-icons">wb_sunny</i>
+              </button>
+              <span data-test-id="output-temperature" class="temperature">{{this.enteredData.temperature}}</span>
+            </div>
+            <div class="mr-15 mb-15">
+              <div data-test-id="output-wind" class="mt-20">
+                Wind:{{this.enteredData.wind}}
+              </div>
+              <div data-test-id="output-humidity" class="mt-20">
+                Humidity:{{this.enteredData.humidity}}
+              </div>
+            </div>
+        </div>
+      </div>
+      <div *ngIf ="invaliddata">
+        <div data-test-id="no-results" class="card-text">
+
+          <h3>Please Enter valid city</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
